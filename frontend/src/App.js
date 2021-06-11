@@ -1,24 +1,24 @@
-import logo from './logo.svg';
+import React from 'react';
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
 import './App.css';
 
-function App() {
+const OnBoarding = React.lazy(() => import('./components/OnBoarding'));
+
+function App(props) {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <BrowserRouter>
+      <React.Suspense fallback={'Loading...'}>
+        <Switch>
+          <Route
+            exact
+            path='/'
+            name='onBoarding App'
+            render={(props) => <OnBoarding {...props} />}
+          />
+        </Switch>
+      </React.Suspense>
+    </BrowserRouter>
   );
 }
 
