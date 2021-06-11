@@ -6,6 +6,7 @@ const cors = require('cors');
 const apiRoutes = require('./routes');
 const { connect } = require('mongoose');
 const bodyParser = require('body-parser');
+const { userSeeder } = require('./seeder');
 
 dotenv.config();
 
@@ -17,6 +18,7 @@ connect(process.env.DB_URL, {
 })
   .then(() => {
     console.log('Database connected successfully!!!');
+    userSeeder.addUser();
   })
   .catch((error) => {
     console.log('Error in database connection', error.message);
@@ -28,7 +30,7 @@ app.use(bodyParser.json({ limit: '100mb' }));
 
 const corsOption = {
   origin: true,
-  methods: 'GET,POST,PUT',
+  methods: 'GET,PUT',
   credentials: true,
 };
 
