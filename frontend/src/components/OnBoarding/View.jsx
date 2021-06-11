@@ -9,6 +9,7 @@ const View = ({ inputs, onToggle }) => {
     phone = '',
     profile = '',
     bio = '',
+    bgColor,
   } = inputs || {};
   return (
     <>
@@ -30,7 +31,10 @@ const View = ({ inputs, onToggle }) => {
         <Col md={12} xs={12} lg={12}>
           <div className='toogle-wrap'>
             <span onClick={() => onToggle()} className='cursor-pointer'>
-              <i className='fa fa-pencil'></i>
+              <i
+                className='fa fa-pencil'
+                style={{ color: bgColor !== 'white' ? bgColor : 'black' }}
+              ></i>
             </span>
           </div>
         </Col>

@@ -180,11 +180,12 @@ const OnBoardingForm = ({
                   >
                     <DropdownToggle caret>{bgColor}</DropdownToggle>
                     <DropdownMenu onClick={(e) => onDropDownChange(e)}>
-                      <DropdownItem value={'red'}>Red</DropdownItem>
                       <DropdownItem value={'white'}>White</DropdownItem>
+                      <DropdownItem value={'red'}>Red</DropdownItem>
                       <DropdownItem value={'blue'}>Blue</DropdownItem>
                       <DropdownItem value={'orange'}>Orange</DropdownItem>
                       <DropdownItem value={'green'}>Green</DropdownItem>
+                      <DropdownItem value={'navy'}>Navy</DropdownItem>
                       <DropdownItem value={'violet'}>Violet</DropdownItem>
                     </DropdownMenu>
                   </Dropdown>
@@ -202,7 +203,10 @@ const OnBoardingForm = ({
                 Update
               </Button>
               <span onClick={() => onToggle()} className='cursor-pointer'>
-                <i className='fa fa-eye'></i>
+                <i
+                  className='fa fa-eye'
+                  style={{ color: bgColor !== 'white' ? bgColor : 'black' }}
+                ></i>
               </span>
             </div>
           </Col>

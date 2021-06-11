@@ -72,8 +72,14 @@ ul {
   cursor: pointer;
 }
 
-.btn-secondary {
-  background-color: #1f6dfa !important;
+.btn {
+  background-color: #1c3549 !important;
+  border-color: #1c3549 !important;
+  text-transform: capitalize;
+}
+.btn:hover {
+  background-color: #132738 !important;
+  border-color: #132738 !important;
 }
 .validation-error {
   font-size: 12px;
