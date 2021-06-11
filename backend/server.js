@@ -12,13 +12,14 @@ dotenv.config();
 
 const app = express();
 
+// DB connection
 connect(process.env.DB_URL, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 })
   .then(() => {
     console.log('Database connected successfully!!!');
-    userSeeder.addUser();
+    userSeeder.addUser(); // seeder to add user data
   })
   .catch((error) => {
     console.log('Error in database connection', error.message);
@@ -34,6 +35,7 @@ const corsOption = {
   credentials: true,
 };
 
+// CORS configuration
 app.use(cors(corsOption));
 app.use('/api/v1', apiRoutes);
 
